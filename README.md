@@ -28,7 +28,7 @@ Example configuration for AWS ElasticSearch service:
 
 * Enable access from the build machine to AWS Elasticsearch Service
 * Under global configuration: Choose ElasticSearch 
-* Host name https://"ElasticSearch Domain End Point" port 80, key /jenkins/builds
+* Host name https://"ElasticSearch Domain End Point" port 443, key /jenkins/builds
 * Under job configuration Post Build ==> Send console log to logstash 
 
 
