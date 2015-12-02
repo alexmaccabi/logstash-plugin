@@ -24,6 +24,14 @@ Currently supported methods of input/output:
 * RabbitMQ {mechanism => PLAIN}
 * Syslog {format => cee/json, protocol => UDP}
 
+Example configuration for AWS ElasticSearch service:
+
+* Enable access from the build machine to AWS Elasticsearch Service
+* Under global configuration: Choose ElasticSearch 
+* Host name https://"ElasticSearch Domain End Point" port 80, key /jenkins/builds
+* Under job configuration Post Build ==> Send console log to logstash 
+
+
 License
 =======
 
