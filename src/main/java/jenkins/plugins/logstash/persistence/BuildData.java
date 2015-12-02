@@ -114,7 +114,6 @@ public class BuildData {
     result = build.getResult() == null ? null : build.getResult().toString();
     id = build.getId();
     projectName = build.getProject().getName();
-    displayName = build.getDisplayName();
     fullDisplayName = build.getFullDisplayName();
     description = build.getDescription();
     url = build.getUrl();
@@ -129,7 +128,6 @@ public class BuildData {
       buildHost = "master";
       buildLabel = "master";
     } else {
-      buildHost = StringUtils.isBlank(node.getDisplayName()) ? "master" : node.getDisplayName();
       buildLabel = StringUtils.isBlank(node.getLabelString()) ? "master" : node.getLabelString();
     }
 
@@ -138,7 +136,6 @@ public class BuildData {
     buildDuration = currentTime.getTime() - build.getStartTimeInMillis();
     timestamp = DATE_FORMATTER.format(build.getTimestamp().getTime());
     rootProjectName = build.getRootBuild().getProject().getName();
-    rootProjectDisplayName = build.getRootBuild().getDisplayName();
     rootBuildNum = build.getRootBuild().getNumber();
     buildVariables = build.getBuildVariables();
 
@@ -195,14 +192,6 @@ public class BuildData {
     this.projectName = projectName;
   }
 
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public String getFullDisplayName() {
     return fullDisplayName;
   }
@@ -217,14 +206,6 @@ public class BuildData {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
   }
 
   public String getBuildHost() {
@@ -273,22 +254,6 @@ public class BuildData {
 
   public void setRootProjectName(String rootProjectName) {
     this.rootProjectName = rootProjectName;
-  }
-
-  public String getRootProjectDisplayName() {
-    return rootProjectDisplayName;
-  }
-
-  public void setRootProjectDisplayName(String rootProjectDisplayName) {
-    this.rootProjectDisplayName = rootProjectDisplayName;
-  }
-
-  public int getRootBuildNum() {
-    return rootBuildNum;
-  }
-
-  public void setRootBuildNum(int rootBuildNum) {
-    this.rootBuildNum = rootBuildNum;
   }
 
   public Map<String, String> getBuildVariables() {
