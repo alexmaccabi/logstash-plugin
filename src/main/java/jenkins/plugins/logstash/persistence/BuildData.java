@@ -96,7 +96,6 @@ public class BuildData {
   protected String displayName;
   protected String fullDisplayName;
   protected String description;
-  protected String url;
   protected String buildHost;
   protected String buildLabel;
   protected int buildNum;
@@ -115,8 +114,8 @@ public class BuildData {
     id = build.getId();
     projectName = build.getProject().getName();
     fullDisplayName = build.getFullDisplayName();
+	displayName = build.getDisplayName();
     description = build.getDescription();
-    url = build.getUrl();
 
     Action testResultAction = build.getAction(AbstractTestResultAction.class);
     if (testResultAction != null) {
@@ -128,6 +127,7 @@ public class BuildData {
       buildHost = "master";
       buildLabel = "master";
     } else {
+	  buildHost = StringUtils.isBlank(node.getDisplayName()) ? "master" : node.getDisplayName();
       buildLabel = StringUtils.isBlank(node.getLabelString()) ? "master" : node.getLabelString();
     }
 
@@ -136,6 +136,7 @@ public class BuildData {
     buildDuration = currentTime.getTime() - build.getStartTimeInMillis();
     timestamp = DATE_FORMATTER.format(build.getTimestamp().getTime());
     rootProjectName = build.getRootBuild().getProject().getName();
+	rootProjectDisplayName = build.getRootBuild().getDisplayName();
     rootBuildNum = build.getRootBuild().getNumber();
     buildVariables = build.getBuildVariables();
 
@@ -192,14 +193,13 @@ public class BuildData {
     this.projectName = projectName;
   }
 
-  public String getFullDisplayName() {
-    return fullDisplayName;
+  public String getDisplayName() {
+    return displayName;
   }
 
-  public void setFullDisplayName(String fullDisplayName) {
-    this.fullDisplayName = fullDisplayName;
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
-
   public String getDescription() {
     return description;
   }
@@ -270,5 +270,12 @@ public class BuildData {
 
   public void setTestResults(TestData testResults) {
     this.testResults = testResults;
+  }
+  public String getRootProjectDisplayName() {
+    return rootProjectDisplayName;
+  }
+
+  public void setRootProjectDisplayName(String rootProjectDisplayName) {
+    this.rootProjectDisplayName = rootProjectDisplayName;
   }
 }
