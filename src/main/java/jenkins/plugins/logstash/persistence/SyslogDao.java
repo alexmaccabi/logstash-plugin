@@ -23,7 +23,7 @@ public class SyslogDao extends AbstractLogstashIndexerDao {
   public void push(String data) throws IOException {
     // Making the JSON document compliant to Common Event Expression (CEE)
     // http://www.rsyslog.com/json-elasticsearch/
-    //data = data;
+    data = data;
     // SYSLOG Configuration
     //messageSender.setDefaultMessageHostname(host);
     //messageSender.setDefaultAppName("jenkins:");
