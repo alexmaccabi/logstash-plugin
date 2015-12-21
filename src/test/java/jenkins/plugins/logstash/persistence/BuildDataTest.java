@@ -360,15 +360,15 @@ public class BuildDataTest {
     buildData.setBuildVariables(buildVariables);
     buildData.setDescription("DESCRIPTION");
     buildData.setDisplayName("DISPLAY NAME");
-    buildData.setFullDisplayName("FULL DISPLAY NAME");
+    //buildData.setFullDisplayName("FULL DISPLAY NAME");
     buildData.setId("TEST_JOB_123");
     buildData.setProjectName("PROJECT_NAME");
     buildData.setResult(Result.SUCCESS);
-    buildData.setRootBuildNum(456);
+    //buildData.setRootBuildNum(456);
     buildData.setRootProjectDisplayName("ROOT PROJECT DISPLAY NAME");
     buildData.setRootProjectName("ROOT PROJECT NAME");
     buildData.timestamp = "2000-02-01T00:00:00-0800";
-    buildData.setUrl("http://localhost:8080/jenkins/jobs/PROJECT_NAME/123");
+    //buildData.setUrl("http://localhost:8080/jenkins/jobs/PROJECT_NAME/123");
     buildData.setTestResults(new TestData());
 
     return buildData;
