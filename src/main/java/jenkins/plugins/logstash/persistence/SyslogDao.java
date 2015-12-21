@@ -30,8 +30,8 @@ public class SyslogDao extends AbstractLogstashIndexerDao {
     //messageSender.setDefaultFacility(Facility.USER);
     //messageSender.setDefaultSeverity(Severity.INFORMATIONAL);
     messageSender.setSyslogServerHostname(host);
-    //messageSender.setSyslogServerPort(port);
-    messageSender.setMessageFormat(MessageFormat.RFC_5424);
+    messageSender.setSyslogServerPort(port);
+    //messageSender.setMessageFormat(MessageFormat.RFC_5424);
     // Sending the message
     messageSender.sendMessage(data);
   }
